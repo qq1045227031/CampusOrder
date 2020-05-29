@@ -1,0 +1,190 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SUI Mobile Demo</title>
+    <meta name="description" content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
+    <meta name="author" content="阿里巴巴国际UED前端">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">；
+
+    <!-- Google Web Fonts -->
+    <link rel="stylesheet"
+          href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet"
+          href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="../resources/css/frontend/index.css">
+
+    <script>
+        //ga
+    </script>
+
+</head>
+<body>
+<div class="page-group">
+    <div id="page-layout" class="page">
+        <header class="bar bar-nav">
+            <a class="button button-link button-nav pull-left back" href="/demos/form">
+                <span class="icon icon-left"></span>
+                返回
+            </a>
+            <h1 class="title">个人信息</h1>
+        </header>
+        <div class="content">
+            <div class="list-block">
+                <ul>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">用户名</div>
+                                <div class="item-input">
+                                    <input type="text" id="name" placeholder="请输入用户名">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--                    商铺分类，下拉列表-->
+                    <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">头像</div>
+                            <div class="item-input">
+                                <img id="imgsrc"/>
+                                <!--                                    <input type="file" id="img">-->
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">修改头像</div>
+                                <div class="item-input">
+                                    <input type="file" id="imgchange">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--                    区域分类，下拉列表-->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">邮箱</div>
+                                <div class="item-input">
+                                    <input id="email" type="email" placeholder="邮箱">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--                    详细地址  text-->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">详细地址</div>
+                                <div class="item-input">
+                                    <input type="text" id="addr" placeholder="详细地址">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--                    联系电话 text-->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">联系电话</div>
+                                <div class="item-input">
+                                    <input type="text" id="phone" placeholder="联系电话">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--                    店铺简介 textarea-->
+                    <li class="align-top">
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">性别</div>
+                                <div class="item-input">
+                                    <p type="text" id="gender"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--                    验证码 kaptcha-->
+                    <!--                    <li>-->
+                    <!--                        <div class="item-content">-->
+                    <!--                            <div class="item-media"><i class="icon icon-form-name"></i></div>-->
+                    <!--                            <div class="item-inner">-->
+                    <!--                                <div class="item-title label">错误信息</div>-->
+                    <!--                                <div class="item-input">-->
+                    <!--                                    <p type="text" id="errMsg" placeholder="错误信息"></p>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
+                </ul>
+            </div>
+            <div class="content-block">
+                <div class="row">
+                    <div class="col-50"><a href="/springboot/frontend/index" class="button button-big button-fill button-danger">返回</a></div>
+                    <div class="col-50"><a href="#" id="tijiao" class="button button-big button-fill button-success">修改</a></div>
+<!--                    <div class="col-50"><a href="#" class="button button-big button-fill button-success" id="submit">提交</a></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-right panel-reveal" id="panel-left-demo">
+        <div class="content-block">
+            <!--            <p>-->
+            <!--                <a href="/springboot/local/accountbind?usertype=1" class="close-panel">绑定账号</a>-->
+            <!--            </p>-->
+            <p>
+                <a href="/springboot/frontend/mymessage" class="close-panel">我的信息</a>
+            </p>
+            <p>
+                <a href="/springboot/local/changepsw?usertype=1" class="close-panel">修改密码</a>
+            </p>
+            <p>
+                <a href="/springboot/frontend/myrecord" class="close-panel">消费记录</a>
+            </p>
+            <p>
+                <a href="/springboot/frontend/mypoint" class="close-panel">我的积分</a>
+            </p>
+            <p>
+                <a href="/springboot/frontend/pointrecord" class="close-panel">积分兑换记录</a>
+            </p>
+            <p>
+                <a href="/springboot/frontend/exit" usertype="1" class="close-panel" id="log-out">退出系统</a>
+            </p>
+            <!-- Click on link with "close-panel" class will close panel -->
+        </div>
+    </div>
+</div>
+<script type='text/javascript'
+        src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript'
+        src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript'
+        src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<!--<script type='text/javascript' src='../resources/js/frontend/index.js'-->
+<!--        charset='utf-8'>-->
+<!--</script>-->
+
+<!--<script type='text/javascript' src='../resouces/js/shop/shopoperation.js'-->
+<!--        charset='utf-8'></script>-->
+<!--这里使用了把resource变成source文件夹，然后通过 /绝对路径的方式，这个 /是web文件夹下-->
+<script type="text/javascript" src="../resources/js/common/common.js"></script>
+<script type="text/javascript" src="../resources/js/frontend/mymessage.js"></script>
+</body>
+</html>

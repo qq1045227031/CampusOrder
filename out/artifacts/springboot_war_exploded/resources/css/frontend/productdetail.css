@@ -1,0 +1,57 @@
+.shopdetail-button-div {
+    margin: 0 .3rem;
+}
+.shopdetail-button-div > .button {
+    width: 30%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    display: inline-block;
+    margin: 1%;
+    overflow: hidden;
+}
+/*.zhifu {*/
+/*    z-index: 2;*/
+/*    position: fixed;*/
+/*    bottom: 0px;*/
+/*    right: 140px;*/
+/*    font-size: 50px;*/
+/*    cursor: pointer;*/
+/*}*/
+.zhifu{
+
+    -webkit-transition-duration: 0.4s;
+
+    transition-duration: 0.4s;
+
+    padding: 9px 32px;
+
+    text-align: center;
+
+    background-color: white;
+
+    color: black;
+
+    border: 2px solid #4CAF50;
+
+    border-radius:5px;
+
+}
+
+.zhifu:hover{
+
+    background-color: #4CAF50;
+
+    color: white;
+
+}
+.center-in-center {
+    position: absolute;
+    position: fixed;
+    top: 87%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

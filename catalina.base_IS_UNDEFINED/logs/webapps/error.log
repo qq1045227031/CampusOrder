@@ -1,0 +1,2 @@
+2020-04--23 17:23::23.410[main] ERROR com.imooc.o2o.service.impl.AreaServiceImpl - Unrecognized field "lstEditTime" (class com.imooc.o2o.entity.Area), not marked as ignorable (5 known properties: "areaId", "createTime", "priority", "lastEditTime", "areaName"])
+ at [Source: (String)"[{"areaId":2,"areaName":"东院","priority":2,"createTime":null,"lstEditTime":null},{"areaId":3,"areaName":"西院","priority":1,"createTime":null,"lstEditTime":null}]"; line: 1, column: 79] (through reference chain: java.util.ArrayList[0]->com.imooc.o2o.entity.Area["lstEditTime"])

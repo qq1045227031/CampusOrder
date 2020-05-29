@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.o2o.dao.ShopCategoryDao">
+<resultMap id="shopcategorymap" type="com.imooc.o2o.entity.ShopCategory">
+    <id property="shopCategoryId" column="shop_category_id"/>
+    <result property="shopCategoryName" column="shop_category_name"/>
+    <result property="shopCategoryDesc" column="shop_category_desc"/>
+    <result property="shopCategoryImg" column="shop_category_img"/>
+    <result property="priority" column="priority"/>
+    <result property="createTime" column="create_time"/>
+    <result property="lastEditTime" column="last_edit_time"/>
+    <association property="parent" column="shop_category_id" javaType="com.imooc.o2o.entity.ShopCategory">
+        <id property="shopCategoryId" column="parent_id"/>
+    </association>
+
+</resultMap>
+    <select id="queryShopCategory" resultMap="shopcategorymap">
+     SELECT
+     shop_category_id,
+     shop_category_name,
+     shop_category_desc,
+     shop_category_img,
+     priority,
+     create_time,
+     last_edit_time,
+     parent_id
+     from tb_shop_category
+     <where>
+         <if test="shopCategoryCondition==null">
+             and parent_id is null
+         </if>
+         <if test="shopCategoryCondition!=null and shopCategoryCondition.parent.shopCategoryId!=null and shopCategoryCondition.parent.shopCategoryId!=-0l">
+             and parent_id is not null
+         </if>
+         <if test="shopCategoryCondition!=null and shopCategoryCondition.parent!=null and shopCategoryCondition.parent.shopCategoryId!=-1l and shopCategoryCondition.parent.shopCategoryId!=-0l">
+             and parent_id = #{shopCategoryCondition.parent.shopCategoryId}
+         </if>
+     </where>
+
+     order by priority desc;
+
+    </select>
+    <select id="getShopCategoryById" resultMap="shopcategorymap">
+        SELECT
+     shop_category_id,
+     shop_category_name,
+     shop_category_desc,
+     shop_category_img,
+     priority,
+     create_time,
+     last_edit_time,
+     parent_id
+     from tb_shop_category
+     where shop_category_id =#{shopCategoryId}
+    </select>
+    <select id="queryShopCategoryByIds" resultType="com.imooc.o2o.entity.ShopCategory">
+        SELECT
+        shop_category_id,
+        shop_category_name,
+        shop_category_desc,
+        shop_category_img,
+        priority,
+        create_time,
+        last_edit_time,
+        parent_id
+        FROM
+        tb_shop_category
+        WHERE shop_category_id IN
+        <foreach collection="list" item="shopCategoryId" open="("
+                 separator="," close=")">
+            #{shopCategoryId}
+        </foreach>
+    </select>
+    <insert id="insertShopCategory" useGeneratedKeys="true"
+            keyProperty="shopCategoryId" keyColumn="shop_category_id">
+		INSERT INTO
+		tb_shop_category(shop_category_name,shop_category_desc,shop_category_img,
+		priority,create_time,last_edit_time,parent_id)
+		VALUES
+		(#{shopCategoryName},#{shopCategoryDesc},#{shopCategoryImg},
+		#{priority},#{createTime},#{lastEditTime},#{parent.shopCategoryId})
+	</insert>
+    <update id="updateShopCategory" parameterType="com.imooc.o2o.entity.ShopCategory">
+        update tb_shop_category
+        <set>
+            <if test="shopCategoryName != null">shop_category_name=#{shopCategoryName},</if>
+            <if test="shopCategoryDesc != null">shop_category_desc=#{shopCategoryDesc},</if>
+            <if test="shopCategoryImg != null">shop_category_img=#{shopCategoryImg},</if>
+            <if test="priority != null">priority=#{priority},</if>
+            <if test="lastEditTime != null">last_edit_time=#{lastEditTime},</if>
+            <if test="parent!=null and parent.shopCategoryId != null">parent_id=#{parent.shopCategoryId}</if>
+        </set>
+        where shop_category_id=#{shopCategoryId}
+    </update>
+    <delete id="deleteShopCategory">
+		DELETE FROM
+		tb_shop_category
+		WHERE
+		shop_category_id =
+		#{shopCategoryId}
+	</delete>
+    <delete id="batchDeleteShopCategory" parameterType="long">
+        DELETE FROM
+        tb_shop_category
+        WHERE shop_category_id IN
+        <foreach collection="list" item="shopCategoryId" open="("
+                 separator="," close=")">
+            #{shopCategoryId}
+        </foreach>
+    </delete>
+</mapper>
