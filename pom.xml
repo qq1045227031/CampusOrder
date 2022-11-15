@@ -73,7 +73,7 @@
             <!--            已更新-->
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.10.0</version>
+            <version>2.12.7.1</version>
         </dependency>
         <!-- 用于生成验证码 https://mvnrepository.com/artifact/com.github.penggle/kaptcha -->
         <dependency>
